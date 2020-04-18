@@ -1,0 +1,40 @@
+#tablero {
+    height: 248px;
+    width: 248px;
+    margin: 30px auto;
+}
+
+.celda {
+    float: left;
+    background: #fff;
+    height: 80px;
+    width: 80px;
+    border: solid 1px gray;
+    font-size: 20pt;
+    text-align: center;
+}
+
+.celda:hover {
+    background: rgb(218, 214, 206);
+    cursor: pointer;
+}
+
+#jugadores {
+    display: none;
+}
+
+#ficha {
+    display: none;
+}
+
+#juego {
+    display: none;
+}
+
+#ganador {
+    display: none;
+}
+
+#historial {
+    display: none;
+}

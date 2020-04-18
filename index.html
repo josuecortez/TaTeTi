@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>El juego del Ta Te Ti</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--estilos-->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animate.css">
+</head>
+
+<body>
+    <header>
+        <div class="bg-dark collapse " id="navbarHeader">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8 col-md-7 py-4">
+                        <h4 class="text-white">Sobre el Juego</h4>
+                        <p class="text-muted">Juego del Ta Te Ti realizado por un alumno de la Facultad Tecnológica Nacional Regional Mendoza, Josué Cortez.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navbar navbar-dark bg-dark box-shadow">
+            <div class="container d-flex justify-content-between">
+                <a href="#" class="navbar-brand d-flex align-items-center">
+                    <strong>Ta Te Ti</strong>
+                </a>
+                <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <main role="main">
+        <!-- jugadores -->
+        <section class="jumbotron text-center" id="principal">
+            <div class="container" id="bienvenido">
+                <h1 class="jumbotron-heading">Bienvenido a Ta Te Ti</h1>
+                <p class="lead text-muted">Comienza a jugar ya mismo.</p>
+                <p>
+                    <button id="btnJugar" onclick="btnJugar()" class="btn btn-primary my-2">Jugar</button>
+                </p>
+            </div>
+            <!-- Jugadores -->
+            <section id="jugadores">
+                <div class="container">
+                    <h2>Selecciona nombre de los participantes.</h2>
+                    <div class="form-row">
+                        <div class="form-group col-sm-4">
+                            <label for="usr">Nombre del Jugador 1:</label>
+                            <input type="text" class="form-control" id="usr1" required>
+                        </div>
+                        <div class="form-group col-sm-2">
+                            <label for="ficha1">Ficha Jugador 1</label>
+                            <select class="form-control" id="ficha1" required>
+                                <option selected>X</option>
+                                <option>O</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label for="usr">Nombre del Jugador 2:</label>
+                            <input type="text" class="form-control" id="usr2" required>
+                        </div>
+                        <div class="form-group col-sm-2">
+                            <label for="select2">Ficha Jugador 2</label>
+                            <input type="text" class="form-control" id="ficha2" disabled>
+                        </div>
+                    </div>
+                    <button id="btnComienza" onclick="comenzar()" class="btn btn-primary my-2">Comienza</button>
+                    <div class="alert alert-warning alert-dismissible fade hide" role="alert" id="alert">
+                        <strong>Complete los campos</strong>
+                    </div>
+                </div>
+            </section>
+            <!-- tablero e historial-->
+            <section id="juego">
+                <button id="btnReinicia" onclick="btnReinicia()" class="btn btn-primary my-2">Inicio</button>
+                <div class="form-row">
+                    <div class="col">
+                        <table class="table" id="Historial">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Historial de Partidas</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th id="tbJugador1"></th>
+                                    <td id="tbGanados1"></td>
+                                </tr>
+                                <tr>
+                                    <th id="tbJugador2"></th>
+                                    <td id="tbGanados2"></td>
+                                </tr>
+                                <tr>
+                                    <th>Empatados</th>
+                                    <td id="tbEmpatados"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col">
+                        <p class="lead text-muted" style="text-align: center;" id="turno"></p>
+                        <div id="tablero">
+                            <div class="celda" id="0"></div>
+                            <div class="celda" id="1"></div>
+                            <div class="celda" id="2"></div>
+                            <div class="celda" id="3"></div>
+                            <div class="celda" id="4"></div>
+                            <div class="celda" id="5"></div>
+                            <div class="celda" id="6"></div>
+                            <div class="celda" id="7"></div>
+                            <div class="celda" id="8"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="ganador">
+                    <div class="alert alert-success fade show" role="alert">
+                        <h4 class="alert-heading" id="nombreGanador"></h4>
+                    </div>
+                    <button id="btnVolverAJugar" class="btn btn-primary my-2" onclick="VolverAJugar()">Volver A Jugar</button>
+                </div>
+            </section>
+        </section>
+    </main>
+    <footer class="text-muted">
+        <div class="container">
+            <p>Programación Avanzada 2020</p>
+            <p>Josué Cortez</p>
+        </div>
+    </footer>
+    <!-- JavaScript -->
+    <script type="text/javascript" src="js/index.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>
